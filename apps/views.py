@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from .models import Ad
 
-# Create your views here.
+
+class AdListView(APIView):
+    def get(self, request):
+        queryset = Ad.objects.filter(is_publish=True)
