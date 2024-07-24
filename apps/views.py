@@ -7,6 +7,7 @@ from rest_framework import status
 
 
 class AdListView(APIView):
+    serializer_class = AdSerializer
     def get(self, request):
         queryset = Ad.objects.filter(is_publish=True)
         serializer = AdSerializer(instance=queryset, many=True)
